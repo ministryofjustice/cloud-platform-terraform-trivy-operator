@@ -1,42 +1,42 @@
 <!-- Rename the heading when using this template -->
-# cloud-platform-terraform-_template_
 
-<!-- Remove this note -->
+# cloud-platform-terraform-trivy-operator
+
 _Note: See the [source of this file](https://github.com/ministryofjustice/cloud-platform-terraform-template/blob/main/README.md?plain=1) for inline comments to help you complete this file._
 
 <!-- Change the URL in the release badge to point towards your new repository -->
-[![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-terraform-template/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-terraform-template/releases)
+
+[![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-terraform-trivy-operator/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-terraform-trivy-operator/releases)
 
 <!-- Add a short description of the module -->
-This Terraform module will...
+
+This Terraform module will install a Kubernetes namespace and [Trivy operator](https://aquasecurity.github.io/trivy-operator/v0.1.5/operator/installation/helm/) in your cluster.
 
 ## Usage
 
-<!-- Describe how to use the module -->
-
-<!-- Change the source URL below to point towards your new repository -->
 ```hcl
 module "template" {
-  source = "github.com/ministryofjustice/cloud-platfrom-terraform-template?ref=version"
+  source = "github.com/ministryofjustice/cloud-platfrom-terraform-trivy-operator?ref=version"
 }
 ```
 
 See the [examples/](examples/) folder for more information.
 
 <!-- BEGIN_TF_DOCS -->
+
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.0.0 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >=2.0.0 |
+| Name                                                                        | Version |
+| --------------------------------------------------------------------------- | ------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform)    | >= 0.14 |
+| <a name="requirement_aws"></a> [aws](#requirement_aws)                      | >=4.0.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement_kubernetes) | >=2.0.0 |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >=4.0.0 |
+| Name                                             | Version |
+| ------------------------------------------------ | ------- |
+| <a name="provider_aws"></a> [aws](#provider_aws) | >=4.0.0 |
 
 ## Modules
 
@@ -44,10 +44,10 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
+| Name                                                                                                                          | Type        |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region)                   | data source |
 
 ## Inputs
 
@@ -56,6 +56,7 @@ No inputs.
 ## Outputs
 
 No outputs.
+
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->
