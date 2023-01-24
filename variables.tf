@@ -1,5 +1,5 @@
 variable "severity" {
-  default = "CRITICAL,HIGH,MEDIUM,LOW"
+  default = ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]
 }
 
 variable "ignore_unfixed" {
