@@ -33,12 +33,12 @@ resource "helm_release" "trivy-system" {
 
   set {
     name  = "trivy.severity"
-    value = "CRITICAL"
+    value = var.severity
   }
 
   set {
     name  = "trivy.ignoreUnfixed"
-    value = "true"
+    value = var.ignore_unfixed
   }
 
   lifecycle {

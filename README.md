@@ -2,14 +2,10 @@
 
 # cloud-platform-terraform-trivy-operator
 
-_Note: See the [source of this file](https://github.com/ministryofjustice/cloud-platform-terraform-template/blob/main/README.md?plain=1) for inline comments to help you complete this file._
-
 <!-- Change the URL in the release badge to point towards your new repository -->
-
 [![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-terraform-trivy-operator/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-terraform-trivy-operator/releases)
 
 <!-- Add a short description of the module -->
-
 This Terraform module will install a Kubernetes namespace and [Trivy operator](https://aquasecurity.github.io/trivy-operator/v0.1.5/operator/installation/helm/) in your cluster.
 
 ## Usage
