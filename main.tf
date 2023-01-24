@@ -31,16 +31,6 @@ resource "helm_release" "trivy-system" {
   chart      = "trivy-operator"
   version    = "0.10.1"
 
-  set {
-    name  = "trivy.severity"
-    value = var.severity
-  }
-
-  set {
-    name  = "trivy.ignoreUnfixed"
-    value = var.ignore_unfixed
-  }
-
   lifecycle {
     ignore_changes = [keyring]
   }
