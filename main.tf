@@ -31,7 +31,7 @@ resource "helm_release" "trivy-system" {
   chart      = "trivy-operator"
   version    = "0.10.1"
 
-  values = [templatefile("$path.module}/templates/values.yml.tpl", { severity-level = var.severity_list })]
+  values = [templatefile("${path.module}/templates/values.yml.tpl", { severity-level = var.severity_list })]
 
   lifecycle {
     ignore_changes = [keyring]
