@@ -1,4 +1,4 @@
 # Set severity monitoring levels
 
 trivy:
-  severity: MEDIUM,HIGH
+  severity: "${severity-level}"
