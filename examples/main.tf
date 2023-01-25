@@ -3,6 +3,7 @@ provider "aws" {
   profile = "moj-cp"
 }
 
-module "template" {
-  source = "../"
+module "trivy-operator" {
+  source        = "../"
+  severity_list = "HIGH,CRITICAL"
 }
