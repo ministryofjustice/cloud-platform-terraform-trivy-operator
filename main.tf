@@ -33,6 +33,25 @@ resource "helm_release" "trivy-system" {
 
   values = [templatefile("${path.module}/templates/values.yaml.tpl", { severity-level = var.severity_list })]
 
+  set {
+
+    name  = "prometheus.enabled"
+
+    value = "true"
+
+  }
+
+
+
+  set {
+
+    name  = "prometheus.serviceMonitor.enabled"
+
+    value = "true"
+
+  }
+
+
   lifecycle {
     ignore_changes = [keyring]
   }
