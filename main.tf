@@ -27,7 +27,7 @@ resource "kubernetes_secret" "dockerhub_credentials" {
 
   metadata {
     name      = "dockerhub-credentials"
-    namespace = kubernetes_namespace.monitoring.id
+    namespace = kubernetes_namespace.trivy-system.id
   }
 
   type = "kubernetes.io/dockerconfigjson"
@@ -54,8 +54,9 @@ resource "helm_release" "trivy-system" {
 
   values = [
     templatefile("${path.module}/templates/values.yaml.tpl",
-      { severity-level = var.severity_list },
-    { github-access-token = var.github_token })
+      { severity-level      = var.severity_list,
+        github-access-token = var.github_token
+    })
   ]
 
   lifecycle {
