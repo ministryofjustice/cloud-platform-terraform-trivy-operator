@@ -10,3 +10,10 @@ trivy:
   # database from GitHub. Only applicable in Standalone mode.
   
   githubToken: "${github-access-token}"
+
+operator:
+
+  # Dockerhub credentials obtained via namespace secret
+
+  privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
+
