@@ -3,3 +3,6 @@ variable "severity_list" {
   default     = "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
   type        = string
 }
+variable "dependence_prometheus" {
+  description = "Prometheus module - Prometheus Operator dependences in order to be executed."
+}
