@@ -3,3 +3,21 @@ variable "severity_list" {
   default     = "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
   type        = string
 }
+
+variable "dockerhub_username" {
+  description = "DockerHub username - required to avoid hitting Dockerhub API limits in EKS clusters"
+  default     = ""
+  type        = string
+}
+
+variable "dockerhub_password" {
+  description = "DockerHub password - required to avoid hitting Dockerhub API limits in EKS clusters"
+  default     = ""
+  type        = string
+}
+
+variable "github_token" {
+  description = "GitHub Personal Access Token"
+  default     = ""
+  type        = string
+}
