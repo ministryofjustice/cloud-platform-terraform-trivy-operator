@@ -59,10 +59,6 @@ resource "helm_release" "trivy-system" {
     })
   ]
 
-  set {
-    name  = "prometheus.enabled"
-    value = "true"
-  }
 
   set {
     name  = "serviceMonitor.enabled"
