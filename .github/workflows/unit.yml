@@ -3,6 +3,7 @@ on:
     types: [opened, edited, reopened, synchronize]
 env:
   HELM_VERSION: v3.8.0
+  KUBE_CONFIG_PATH: ~/.kube/config
 
 jobs:
   create-cluster:
@@ -12,6 +13,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - uses: WillAbides/setup-go-faster@v1.8.0
+        with:
+          go-version: "1.19.x"
 
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@v1.4.0
@@ -27,7 +32,6 @@ jobs:
           terraform_version: 0.14.x
           terraform_wrapper: false
 
-      - uses: tale/kubectl-action@v1
-        with:
-          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-      - run: kubectl get pods
+      - name: Run go test
+        run: |
+          cd test; go test -v .
