@@ -23,6 +23,27 @@ resource "kubernetes_namespace" "trivy-system" {
   }
 }
 
+resource "kubernetes_secret" "dockerhub_credentials" {
+
+  metadata {
+    name      = "dockerhub-credentials"
+    namespace = kubernetes_namespace.trivy-system.id
+  }
+
+  type = "kubernetes.io/dockerconfigjson"
+
+  data = {
+    ".dockerconfigjson" = <<DOCKER
+{
+  "auths": {
+    "https://index.docker.io/v1": {
+      "auth": "${base64encode("${var.dockerhub_username}:${var.dockerhub_password}")}"
+    }
+  }
+}
+DOCKER
+  }
+}
 
 resource "helm_release" "trivy-system" {
   name       = "trivy-system"
@@ -31,7 +52,12 @@ resource "helm_release" "trivy-system" {
   chart      = "trivy-operator"
   version    = "0.10.1"
 
-  values = [templatefile("${path.module}/templates/values.yaml.tpl", { severity-level = var.severity_list })]
+  values = [
+    templatefile("${path.module}/templates/values.yaml.tpl",
+      { severity-level      = var.severity_list,
+        github-access-token = var.github_token
+    })
+  ]
 
   lifecycle {
     ignore_changes = [keyring]
