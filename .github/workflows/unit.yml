@@ -1,6 +1,9 @@
 on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
+env:
+  HELM_VERSION: v3.8.0
+
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
