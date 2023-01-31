@@ -4,6 +4,10 @@ provider "aws" {
 }
 
 module "trivy-operator" {
-  source        = "../"
+  source = "../"
+
+  dockerhub_username = var.dockerhub_username
+  dockerhub_password = var.dockerhub.password
+
   severity_list = "HIGH,CRITICAL"
 }
