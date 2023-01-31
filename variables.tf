@@ -21,3 +21,9 @@ variable "github_token" {
   default     = ""
   type        = string
 }
+
+variable "service_monitor" {
+  description = "Enable ServiceMonitor for Prometheus Operator"
+  default     = true
+  type        = bool
+}

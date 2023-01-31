@@ -1,5 +1,8 @@
 module "test_module" {
   source = "../"
+
+  service_monitor = false
+
 }
 
 terraform {

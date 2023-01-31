@@ -59,7 +59,7 @@ resource "helm_release" "trivy-system" {
 
   set {
     name  = "serviceMonitor.enabled"
-    value = "true"
+    value = var.service_monitor
   }
 
   lifecycle {
