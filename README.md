@@ -1,12 +1,69 @@
-<!-- Rename the heading when using this template -->
-
-# cloud-platform-terraform-trivy-operator
+# Cloud Platform Trivy Operator Module
 
 <!-- Change the URL in the release badge to point towards your new repository -->
 [![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-terraform-trivy-operator/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-terraform-trivy-operator/releases)
 
 <!-- Add a short description of the module -->
 This Terraform module will install a Kubernetes namespace and [Trivy operator](https://aquasecurity.github.io/trivy-operator/v0.1.5/operator/installation/helm/) in your cluster.
+
+## How to test
+
+There are tests in this module that assert the output of a module install. This is useful for checking changes won't break the expected. You can run these tests continuously using the following methods:
+
+#### Pre-build cluster
+
+If you're using a pre-built cluster and are ready to install, you can simply run:
+
+```bash
+make test
+```
+
+This should apply the Trivy module using test parameters, assert its output and destroy it.
+
+#### Kind cluster
+
+Kind clusters are created locally and give you fast feedback on changes.
+
+To create a kind cluster you must have the [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) binary installed, then run this command:
+
+```bash
+make cluster-up
+```
+
+Make your changes and test with:
+
+```bash
+make test
+```
+
+Once you're finished simply delete the cluster with:
+
+```bash
+make cluster-down
+```
+
+#### Act
+
+Sometimes you want to run exactly what's being executed in the GitHub Action CI. To do this, install [act](https://github.com/nektos/act/blob/master/README.md#installation) and run the following command:
+
+```bash
+act --container-architecture linux/amd64 -W ./.github/workflows/unit.yml
+```
+
+#### Terraform/manually
+
+To test manually, go into the `test` directory and run:
+
+```bash
+terraform init
+terraform apply
+```
+
+When you're finished, run:
+
+```bash
+terraform destroy
+```
 
 ## Usage
 
