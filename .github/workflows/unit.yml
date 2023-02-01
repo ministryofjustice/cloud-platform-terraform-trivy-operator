@@ -7,7 +7,7 @@ env:
   KUBE_CONFIG_PATH: ~/.kube/config
 
 jobs:
-  create-cluster:
+  test-module:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
