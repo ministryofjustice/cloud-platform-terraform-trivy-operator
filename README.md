@@ -1,6 +1,4 @@
-<!-- Rename the heading when using this template -->
-
-# cloud-platform-terraform-trivy-operator
+# Cloud Platform Trivy Operator Module
 
 <!-- Change the URL in the release badge to point towards your new repository -->
 [![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-terraform-trivy-operator/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-terraform-trivy-operator/releases)
