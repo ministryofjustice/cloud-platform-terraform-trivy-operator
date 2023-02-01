@@ -6,8 +6,7 @@
  */
 
 module "trivy-operator" {
-  source = "../"
-  #source = "github.com/ministryofjustice/cloud-platfrom-terraform-trivy-operator?ref=0.1"
+  source = "github.com/ministryofjustice/cloud-platfrom-terraform-trivy-operator?ref=0.1"
 
   dockerhub_username = var.dockerhub_username
   dockerhub_password = var.dockerhub_password

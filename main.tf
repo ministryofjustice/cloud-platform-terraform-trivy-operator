@@ -1,6 +1,3 @@
-data "aws_caller_identity" "current" {}
-data "aws_region" "current" {}
-
 resource "kubernetes_namespace" "trivy-system" {
   metadata {
     name = "trivy-system"
@@ -62,7 +59,7 @@ resource "helm_release" "trivy-system" {
 
   set {
     name  = "serviceMonitor.enabled"
-    value = "true"
+    value = var.service_monitor
   }
 
   lifecycle {
