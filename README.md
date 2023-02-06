@@ -94,7 +94,9 @@ See the [examples/](examples/) folder for more information.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_iam_assumable_role_admin"></a> [iam\_assumable\_role\_admin](#module\_iam\_assumable\_role\_admin) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.13.0 |
 
 ## Resources
 
@@ -108,8 +110,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cluster_domain_name"></a> [cluster\_domain\_name](#input\_cluster\_domain\_name) | The cluster domain used for iam\_assumable\_role\_admin role name | `any` | n/a | yes |
 | <a name="input_dockerhub_password"></a> [dockerhub\_password](#input\_dockerhub\_password) | DockerHub password - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
 | <a name="input_dockerhub_username"></a> [dockerhub\_username](#input\_dockerhub\_username) | DockerHub username - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
+| <a name="input_eks_cluster_oidc_issuer_url"></a> [eks\_cluster\_oidc\_issuer\_url](#input\_eks\_cluster\_oidc\_issuer\_url) | This is going to be used when we create the IAM OIDC role | `string` | `""` | no |
+| <a name="input_enable_trivy"></a> [enable\_trivy](#input\_enable\_trivy) | Enable Trivy vulnerability scanner | `bool` | `true` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
 | <a name="input_service_monitor"></a> [service\_monitor](#input\_service\_monitor) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
 | <a name="input_severity_list"></a> [severity\_list](#input\_severity\_list) | A single string providing comma separated list of CVE Severity levels to be monitored. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL | `string` | `"UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"` | no |
