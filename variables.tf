@@ -28,12 +28,6 @@ variable "service_monitor_enabled" {
   type        = bool
 }
 
-variable "enable_trivy" {
-  description = "Enable Trivy vulnerability scanner"
-  default     = true
-  type        = bool
-}
-
 variable "cluster_domain_name" {
   description = "The cluster domain used for iam_assumable_role_admin role name"
 }
