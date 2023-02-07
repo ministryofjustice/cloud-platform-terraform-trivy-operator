@@ -116,7 +116,8 @@ See the [examples/](examples/) folder for more information.
 | <a name="input_eks_cluster_oidc_issuer_url"></a> [eks\_cluster\_oidc\_issuer\_url](#input\_eks\_cluster\_oidc\_issuer\_url) | This is going to be used when we create the IAM OIDC role | `string` | `""` | no |
 | <a name="input_enable_trivy"></a> [enable\_trivy](#input\_enable\_trivy) | Enable Trivy vulnerability scanner | `bool` | `true` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
-| <a name="input_service_monitor"></a> [service\_monitor](#input\_service\_monitor) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
+| <a name="input_role_key_annotation"></a> [role\_key\_annotation](#input\_role\_key\_annotation) | The annotation key to use for the role key | `string` | `"eks.amazonaws.com/role-arn"` | no |
+| <a name="input_service_monitor_enabled"></a> [service\_monitor\_enabled](#input\_service\_monitor\_enabled) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
 | <a name="input_severity_list"></a> [severity\_list](#input\_severity\_list) | A single string providing comma separated list of CVE Severity levels to be monitored. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL | `string` | `"UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"` | no |
 
 ## Outputs
