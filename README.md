@@ -6,65 +6,6 @@
 <!-- Add a short description of the module -->
 This Terraform module will install a Kubernetes namespace and [Trivy operator](https://aquasecurity.github.io/trivy-operator/v0.1.5/operator/installation/helm/) in your cluster.
 
-## How to test
-
-There are tests in this module that assert the output of a module install. This is useful for checking changes won't break the expected. You can run these tests continuously using the following methods:
-
-#### Pre-build cluster
-
-If you're using a pre-built cluster and are ready to install, you can simply run:
-
-```bash
-make test
-```
-
-This should apply the Trivy module using test parameters, assert its output and destroy it.
-
-#### Kind cluster
-
-Kind clusters are created locally and give you fast feedback on changes.
-
-To create a kind cluster you must have the [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) binary installed, then run this command:
-
-```bash
-make cluster-up
-```
-
-Make your changes and test with:
-
-```bash
-make test
-```
-
-Once you're finished simply delete the cluster with:
-
-```bash
-make cluster-down
-```
-
-#### Act
-
-Sometimes you want to run exactly what's being executed in the GitHub Action CI. To do this, install [act](https://github.com/nektos/act/blob/master/README.md#installation) and run the following command:
-
-```bash
-act --container-architecture linux/amd64 -W ./.github/workflows/unit.yml
-```
-
-#### Terraform/manually
-
-To test manually, go into the `test` directory and run:
-
-```bash
-terraform init
-terraform apply
-```
-
-When you're finished, run:
-
-```bash
-terraform destroy
-```
-
 ## Usage
 
 ```hcl
@@ -94,7 +35,9 @@ See the [examples/](examples/) folder for more information.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_iam_assumable_role_admin"></a> [iam\_assumable\_role\_admin](#module\_iam\_assumable\_role\_admin) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.13.0 |
 
 ## Resources
 
@@ -108,10 +51,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cluster_domain_name"></a> [cluster\_domain\_name](#input\_cluster\_domain\_name) | The cluster domain used for iam\_assumable\_role\_admin role name | `any` | n/a | yes |
 | <a name="input_dockerhub_password"></a> [dockerhub\_password](#input\_dockerhub\_password) | DockerHub password - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
 | <a name="input_dockerhub_username"></a> [dockerhub\_username](#input\_dockerhub\_username) | DockerHub username - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
+| <a name="input_eks_cluster_oidc_issuer_url"></a> [eks\_cluster\_oidc\_issuer\_url](#input\_eks\_cluster\_oidc\_issuer\_url) | This is going to be used when we create the IAM OIDC role | `string` | `""` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
-| <a name="input_service_monitor"></a> [service\_monitor](#input\_service\_monitor) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
+| <a name="input_role_key_annotation"></a> [role\_key\_annotation](#input\_role\_key\_annotation) | The annotation key to use for the role key | `string` | `"eks.amazonaws.com/role-arn"` | no |
+| <a name="input_service_monitor_enabled"></a> [service\_monitor\_enabled](#input\_service\_monitor\_enabled) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
 | <a name="input_severity_list"></a> [severity\_list](#input\_severity\_list) | A single string providing comma separated list of CVE Severity levels to be monitored. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL | `string` | `"UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"` | no |
 
 ## Outputs

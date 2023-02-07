@@ -22,8 +22,24 @@ variable "github_token" {
   type        = string
 }
 
-variable "service_monitor" {
+variable "service_monitor_enabled" {
   description = "Enable ServiceMonitor for Prometheus Operator"
   default     = true
   type        = bool
+}
+
+variable "cluster_domain_name" {
+  description = "The cluster domain used for iam_assumable_role_admin role name"
+}
+
+variable "eks_cluster_oidc_issuer_url" {
+  description = "This is going to be used when we create the IAM OIDC role"
+  type        = string
+  default     = ""
+}
+
+variable "role_key_annotation" {
+  description = "The annotation key to use for the role key"
+  default     = "eks.amazonaws.com/role-arn"
+  type        = string
 }

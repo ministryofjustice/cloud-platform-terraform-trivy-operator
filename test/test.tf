@@ -1,8 +1,10 @@
 module "test_module" {
   source = "../"
 
-  service_monitor = false
+  service_monitor_enabled = false
 
+  cluster_domain_name = "cluster.local"
+  role_key_annotation = ""
 }
 
 terraform {

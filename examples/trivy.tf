@@ -11,5 +11,6 @@ module "trivy-operator" {
   dockerhub_username = var.dockerhub_username
   dockerhub_password = var.dockerhub_password
 
-  severity_list = "HIGH,CRITICAL"
+  severity_list           = "HIGH,CRITICAL"
+  service_monitor_enabled = true
 }
