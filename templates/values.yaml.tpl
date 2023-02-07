@@ -1,5 +1,3 @@
-# Set severity monitoring levels
-
 trivy:
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
   severity: "${severity-level}"
@@ -16,7 +14,7 @@ serviceAccount:
   # Specifies whether a service account should be created.
   create: true
   annotations:
-    eks.amazonaws.com/role-arn: "${eks_service_account}"
+    "${role_key_annotation}": "${eks_service_account}"
   # name specifies the name of the k8s Service Account. If not set and create is
   # true, a name is generated using the fullname template.
   name: ""
@@ -25,7 +23,7 @@ serviceAccount:
 # you must have Prometheus already installed and running
 serviceMonitor:
   # enabled determines whether a serviceMonitor should be deployed
-  enabled: "${service_monitor}"
+  enabled: ${service_monitor_enabled}
   # The namespace where Prometheus expects to find service monitors
   # namespace: ""
   interval: ""

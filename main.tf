@@ -32,7 +32,8 @@ resource "helm_release" "trivy-system" {
       { severity-level          = var.severity_list,
         github-access-token     = var.github_token
         eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
-        service_monitor_enabled = var.service_monitor
+        service_monitor_enabled = var.service_monitor_enabled
+        role_key_annotation     = var.role_key_annotation
     })
   ]
 
