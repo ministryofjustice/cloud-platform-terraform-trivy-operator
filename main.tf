@@ -29,17 +29,18 @@ resource "helm_release" "trivy-system" {
 
   values = [
     templatefile("${path.module}/templates/values.yaml.tpl",
-      { severity-level      = var.severity_list,
-        github-access-token = var.github_token
+      { severity-level          = var.severity_list,
+        github-access-token     = var.github_token
+        eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
+        service_monitor_enabled = var.service_monitor
     })
   ]
 
-  set {
-    name  = "serviceMonitor.enabled"
-    value = var.service_monitor
-  }
-
-  depends_on = [kubernetes_namespace.trivy-system]
+  depends_on = [
+    kubernetes_namespace.trivy-system,
+    module.iam_assumable_role_admin,
+    kubernetes_secret.dockerhub_credentials
+  ]
 
   lifecycle {
     ignore_changes = [keyring]
