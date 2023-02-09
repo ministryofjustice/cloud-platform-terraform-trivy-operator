@@ -5,11 +5,11 @@ trivy:
   
   resources:
     requests:
-      cpu: 500m
-      memory: 512Mi
+      cpu: "500m"
+      memory: "512Mi"
     limits:
-      cpu: 1
-      memory: 1Gi
+      cpu: "1"
+      memory: "1Gi"
    
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
