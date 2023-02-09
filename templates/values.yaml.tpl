@@ -39,4 +39,3 @@ serviceMonitor:
   # Additional labels for the serviceMonitor
   labels: {}
   # honorLabels: true
-
