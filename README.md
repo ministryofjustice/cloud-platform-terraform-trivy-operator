@@ -52,10 +52,14 @@ See the [examples/](examples/) folder for more information.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_domain_name"></a> [cluster\_domain\_name](#input\_cluster\_domain\_name) | The cluster domain used for iam\_assumable\_role\_admin role name | `any` | n/a | yes |
+| <a name="input_cpu_limit"></a> [cpu\_limit](#input\_cpu\_limit) | resources:limits CPU value | `string` | `"1000m"` | no |
+| <a name="input_cpu_requests"></a> [cpu\_requests](#input\_cpu\_requests) | resources:requests CPU value | `string` | `"500m"` | no |
 | <a name="input_dockerhub_password"></a> [dockerhub\_password](#input\_dockerhub\_password) | DockerHub password - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
 | <a name="input_dockerhub_username"></a> [dockerhub\_username](#input\_dockerhub\_username) | DockerHub username - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
 | <a name="input_eks_cluster_oidc_issuer_url"></a> [eks\_cluster\_oidc\_issuer\_url](#input\_eks\_cluster\_oidc\_issuer\_url) | This is going to be used when we create the IAM OIDC role | `string` | `""` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
+| <a name="input_memory_limit"></a> [memory\_limit](#input\_memory\_limit) | resources:limit memory value | `string` | `"1000M"` | no |
+| <a name="input_memory_requests"></a> [memory\_requests](#input\_memory\_requests) | resources:requests memory value | `string` | `"500M"` | no |
 | <a name="input_role_key_annotation"></a> [role\_key\_annotation](#input\_role\_key\_annotation) | The annotation key to use for the role key | `string` | `"eks.amazonaws.com/role-arn"` | no |
 | <a name="input_service_monitor_enabled"></a> [service\_monitor\_enabled](#input\_service\_monitor\_enabled) | Enable ServiceMonitor for Prometheus Operator | `bool` | `true` | no |
 | <a name="input_severity_list"></a> [severity\_list](#input\_severity\_list) | A single string providing comma separated list of CVE Severity levels to be monitored. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL | `string` | `"UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"` | no |
