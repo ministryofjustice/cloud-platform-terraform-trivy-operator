@@ -2,6 +2,14 @@ trivy:
   
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
   severity: "${severity-level}"
+  
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 500m
+      memory: 500M
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
@@ -31,11 +39,3 @@ serviceMonitor:
   # Additional labels for the serviceMonitor
   labels: {}
   # honorLabels: true
-
-resources:
-  requests:
-    cpu: "500m"
-    memory: "512Mi"
-  limits:
-    cpu: "1"
-    memory: "1Gi"
