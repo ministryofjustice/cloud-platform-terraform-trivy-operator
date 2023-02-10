@@ -34,6 +34,10 @@ resource "helm_release" "trivy-system" {
         eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
         service_monitor_enabled = var.service_monitor_enabled
         role_key_annotation     = var.role_key_annotation
+        memory_requests         = var.memory_requests
+        cpu_requests            = var.cpu_requests
+        memory_limit            = var.memory_limit
+        cpu_limit               = var.cpu_limit
     })
   ]
 
