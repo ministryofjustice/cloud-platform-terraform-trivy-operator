@@ -67,3 +67,27 @@ variable "cpu_requests" {
   default     = "500m"
   type        = string
 }
+
+variable "memory_limit_non_live" {
+  description = "Non-live cluster value for resources:limit memory value"
+  default     = "500M"
+  type        = string
+}
+
+variable "cpu_limit_non_live" {
+  description = "Non-live cluster value for resources:limits CPU value"
+  default     = "500m"
+  type        = string
+}
+
+variable "memory_requests_non_live" {
+  description = "Non-live clustrer value for resources:requests memory value"
+  default     = "100M"
+  type        = string
+}
+
+variable "cpu_requests_non_live" {
+  description = "Non-live cluster value for resources:requests CPU value"
+  default     = "100m"
+  type        = string
+}

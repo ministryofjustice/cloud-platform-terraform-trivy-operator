@@ -27,17 +27,16 @@ resource "helm_release" "trivy-system" {
   chart      = "trivy-operator"
   version    = "0.10.2"
 
-  values = [
-    templatefile("${path.module}/templates/values.yaml.tpl",
-      { severity-level          = var.severity_list,
-        github-access-token     = var.github_token
-        eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
-        service_monitor_enabled = var.service_monitor_enabled
-        role_key_annotation     = var.role_key_annotation
-        memory_requests         = var.memory_requests
-        cpu_requests            = var.cpu_requests
-        memory_limit            = var.memory_limit
-        cpu_limit               = var.cpu_limit
+  values = [templatefile("${path.module}/templates/values.yaml.tpl", {
+    severity-level          = var.severity_list,
+    github-access-token     = var.github_token
+    eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
+    service_monitor_enabled = var.service_monitor_enabled
+    role_key_annotation     = var.role_key_annotation
+    memory_requests         = can(regex("live", terraform.workspace)) ? var.memory_requests : var.memory_requests_non_live
+    cpu_requests            = can(regex("live", terraform.workspace)) ? var.cpu_requests : var.cpu_requests_non_live
+    memory_limit            = can(regex("live", terraform.workspace)) ? var.memory_limit : var.memory_limit_non_live
+    cpu_limit               = can(regex("live", terraform.workspace)) ? var.cpu_limit : var.cpu_limit_non_live
     })
   ]
 
