@@ -1,7 +1,16 @@
 trivy:
+  
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
   severity: "${severity-level}"
-
+  
+  resources:
+    requests:
+      cpu: "${cpu_requests}"
+      memory: "${memory_requests}"
+    limits:
+      cpu: "${cpu_limit}"
+      memory: "${memory_limit}"
+    
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
   githubToken: "${github-access-token}"
@@ -19,7 +28,7 @@ serviceAccount:
   # true, a name is generated using the fullname template.
   name: ""
 
-  # Prometheus ServiceMonitor configuration -- to install the trivy operator with the ServiceMonitor
+# Prometheus ServiceMonitor configuration -- to install the trivy operator with the ServiceMonitor
 # you must have Prometheus already installed and running
 serviceMonitor:
   # enabled determines whether a serviceMonitor should be deployed

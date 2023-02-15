@@ -43,3 +43,51 @@ variable "role_key_annotation" {
   default     = "eks.amazonaws.com/role-arn"
   type        = string
 }
+
+variable "memory_limit" {
+  description = "resources:limit memory value"
+  default     = "1000M"
+  type        = string
+}
+
+variable "cpu_limit" {
+  description = "resources:limits CPU value"
+  default     = "1000m"
+  type        = string
+}
+
+variable "memory_requests" {
+  description = "resources:requests memory value"
+  default     = "500M"
+  type        = string
+}
+
+variable "cpu_requests" {
+  description = "resources:requests CPU value"
+  default     = "500m"
+  type        = string
+}
+
+variable "memory_limit_non_live" {
+  description = "Non-live cluster value for resources:limit memory value"
+  default     = "500M"
+  type        = string
+}
+
+variable "cpu_limit_non_live" {
+  description = "Non-live cluster value for resources:limits CPU value"
+  default     = "500m"
+  type        = string
+}
+
+variable "memory_requests_non_live" {
+  description = "Non-live clustrer value for resources:requests memory value"
+  default     = "100M"
+  type        = string
+}
+
+variable "cpu_requests_non_live" {
+  description = "Non-live cluster value for resources:requests CPU value"
+  default     = "100m"
+  type        = string
+}
