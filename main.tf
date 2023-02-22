@@ -37,6 +37,7 @@ resource "helm_release" "trivy-system" {
     cpu_requests            = can(regex("live", terraform.workspace)) ? var.cpu_requests : var.cpu_requests_non_live
     memory_limit            = can(regex("live", terraform.workspace)) ? var.memory_limit : var.memory_limit_non_live
     cpu_limit               = can(regex("live", terraform.workspace)) ? var.cpu_limit : var.cpu_limit_non_live
+    job_concurrency_limit   = var.job_concurrency_limit
     })
   ]
 
