@@ -60,6 +60,7 @@ See the [examples/](examples/) folder for more information.
 | <a name="input_dockerhub_username"></a> [dockerhub\_username](#input\_dockerhub\_username) | DockerHub username - required to avoid hitting Dockerhub API limits in EKS clusters | `string` | `""` | no |
 | <a name="input_eks_cluster_oidc_issuer_url"></a> [eks\_cluster\_oidc\_issuer\_url](#input\_eks\_cluster\_oidc\_issuer\_url) | This is going to be used when we create the IAM OIDC role | `string` | `""` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
+| <a name="input_job_concurrency_limit"></a> [job\_concurrency\_limit](#input\_job\_concurrency\_limit) | Sets the maximum value for concurrent report jobs | `number` | `5` | no |
 | <a name="input_memory_limit"></a> [memory\_limit](#input\_memory\_limit) | resources:limit memory value | `string` | `"500M"` | no |
 | <a name="input_memory_limit_non_live"></a> [memory\_limit\_non\_live](#input\_memory\_limit\_non\_live) | Non-live cluster value for resources:limit memory value | `string` | `"500M"` | no |
 | <a name="input_memory_requests"></a> [memory\_requests](#input\_memory\_requests) | resources:requests memory value | `string` | `"100M"` | no |
