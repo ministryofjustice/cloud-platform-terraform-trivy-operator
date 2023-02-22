@@ -95,5 +95,5 @@ variable "cpu_requests_non_live" {
 variable "job_concurrency_limit" {
   description = "Sets the maximum value for concurrent report jobs"
   default     = 5
-  type        = int
+  type        = number
 }
