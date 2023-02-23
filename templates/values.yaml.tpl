@@ -30,7 +30,21 @@ serviceAccount:
     "${role_key_annotation}": "${eks_service_account}"
   # name specifies the name of the k8s Service Account. If not set and create is
   # true, a name is generated using the fullname template.
+
+  # ##########
+  # An issue exists with builtInTrivyServer mode whereby the service account name is hardcoded:
+  #
+  # https://github.com/aquasecurity/trivy-operator/pull/692/files#diff-469d360fcbb4165cd38b47c205d92fe32006f484f92e124461a5d5bf1842c2bcR58
+  #
+  # This has been fixed in a feature due for release shortly:
+  #
+  # https://github.com/aquasecurity/trivy-operator/pull/692/files#diff-469d360fcbb4165cd38b47c205d92fe32006f484f92e124461a5d5bf1842c2bcR58
+  #
+  # For now, our service account name defaults to trivy-service-trivy-operator, which causes clientServer deployment to fail on service account lookup.
+  # Testing workaround by setting serviceAccount.name to match hard-coded value, but this will trigger a tear down and full redeployment of trivy-operator:
+
   name: "trivy-operator"
+  # ##########
 
 # Prometheus ServiceMonitor configuration -- to install the trivy operator with the ServiceMonitor
 # you must have Prometheus already installed and running
