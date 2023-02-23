@@ -13,7 +13,9 @@ trivy:
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
-  githubToken: "${github-access-token}"
+
+  # We are running clientServer mode, so not passing github access token
+  # githubToken: "${github-access-token}"
 
 operator:
   # Dockerhub credentials obtained via namespace secret
