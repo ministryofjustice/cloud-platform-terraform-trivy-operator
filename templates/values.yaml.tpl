@@ -18,6 +18,7 @@ trivy:
 operator:
   # Dockerhub credentials obtained via namespace secret
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
+  builtInTrivyServer: true
   privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
 
 serviceAccount:
