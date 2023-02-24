@@ -16,8 +16,17 @@ trivy:
   githubToken: "${github-access-token}"
 
 operator:
-  # Dockerhub credentials obtained via namespace secret
+
+  # scanJobTTL the set automatic cleanup time after the job is completed
+  # scanJobTTL:
+
+  # scanJobTimeout the length of time to wait before giving up on a scan job
+  scanJobTimeout: 10m
+
+  # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
+
+  # Dockerhub credentials obtained via namespace secret
   privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
 
 serviceAccount:
