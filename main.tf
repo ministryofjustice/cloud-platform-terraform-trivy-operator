@@ -40,6 +40,13 @@ resource "helm_release" "trivy-system" {
     job_concurrency_limit   = var.job_concurrency_limit
     scan_job_timeout        = var.scan_job_timeout
     enable_trivy_server     = var.enable_trivy_server
+    trivy_service_account   = var.trivy_service_account
+    trivy_timeout           = var.trivy_timeout
+    scanner_report_ttl      = var.scanner_report_ttl
+    enable_config_audit     = var.enable_config_audit
+    enable_rbac_assess      = var.enable_rbac_assess
+    enable_infra_assess     = var.enable_infra_assess
+    enable_secret_scan      = var.enable_secret_scan
     })
   ]
 
