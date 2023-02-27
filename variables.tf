@@ -97,3 +97,15 @@ variable "job_concurrency_limit" {
   default     = 5
   type        = number
 }
+
+variable "scan_job_timeout" {
+  description = "The length of time to wait before giving up on a scan job"
+  default     = "5m"
+  type        = string
+}
+
+variable "enable_trivy_server" {
+  description = "Enable built-in trivy server (clientServer mode). If true, do not set githubToken value"
+  default     = "false"
+  type        = string
+}

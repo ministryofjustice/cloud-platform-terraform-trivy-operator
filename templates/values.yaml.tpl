@@ -1,7 +1,7 @@
 trivy:
   
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
-  severity: "${severity-level}"
+  severity: "${severity_level}"
   
   resources:
     requests:
@@ -13,7 +13,7 @@ trivy:
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
-  githubToken: "${github-access-token}"
+  githubToken: "${github_access_token}"
 
 operator:
 
@@ -21,10 +21,14 @@ operator:
   # scanJobTTL:
 
   # scanJobTimeout the length of time to wait before giving up on a scan job
-  scanJobTimeout: 10m
+  scanJobTimeout: ${scan_job_timeout}
 
   # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
+
+  # builtInTrivyServer The flag enable the usage of built-in trivy server in cluster ,its also override the following trivy params with built-in values
+  # trivy.mode = ClientServer and serverURL = http://<serverServiceName>.<trivy operator namespace>:4975 
+  builtInTrivyServer: ${enable_trivy_server}
 
   # Dockerhub credentials obtained via namespace secret
   privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
