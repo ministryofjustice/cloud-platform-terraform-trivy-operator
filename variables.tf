@@ -94,7 +94,7 @@ variable "cpu_requests_non_live" {
 
 variable "job_concurrency_limit" {
   description = "Sets the maximum value for concurrent report jobs"
-  default     = 5
+  default     = 10
   type        = number
 }
 
@@ -113,5 +113,11 @@ variable "enable_trivy_server" {
 variable "trivy_service_account" {
   description = "Name of the k8s Service Account. If not set, name is generated automatically."
   default     = ""
+  type        = string
+}
+
+variable "trivy_timeout" {
+  description = "Duration to wait for scan completion"
+  default     = "5m0s"
   type        = string
 }

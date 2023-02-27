@@ -2,6 +2,9 @@ trivy:
   
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
   severity: "${severity_level}"
+
+  # timeout is the duration to wait for scan completion.
+  timeout: "{$trivy_timeout}"
   
   resources:
     requests:

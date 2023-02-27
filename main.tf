@@ -41,6 +41,7 @@ resource "helm_release" "trivy-system" {
     scan_job_timeout        = var.scan_job_timeout
     enable_trivy_server     = var.enable_trivy_server
     trivy_service_account   = var.trivy_service_account
+    trivy_timeout           = var.trivy_timeout
     })
   ]
 
