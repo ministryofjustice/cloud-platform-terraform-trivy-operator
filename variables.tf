@@ -121,3 +121,9 @@ variable "trivy_timeout" {
   default     = "5m0s"
   type        = string
 }
+
+variable "scanner_report_ttl" {
+  description = "flag to set how long a report should exist. When a old report is deleted a new one will be created by the controller."
+  default     = "24h"
+  type        = string
+}

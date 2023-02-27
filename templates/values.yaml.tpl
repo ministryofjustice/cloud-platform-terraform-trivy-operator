@@ -26,6 +26,9 @@ operator:
   # scanJobTimeout the length of time to wait before giving up on a scan job
   scanJobTimeout: ${scan_job_timeout}
 
+  # scannerReportTTL the flag to set how long a report should exist. "" means that the ScannerReportTTL feature is disabled
+  scannerReportTTL: "${scanner_report_ttl}"
+
   # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
 

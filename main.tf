@@ -42,6 +42,7 @@ resource "helm_release" "trivy-system" {
     enable_trivy_server     = var.enable_trivy_server
     trivy_service_account   = var.trivy_service_account
     trivy_timeout           = var.trivy_timeout
+    scanner_report_ttl      = var.scanner_report_ttl
     })
   ]
 
