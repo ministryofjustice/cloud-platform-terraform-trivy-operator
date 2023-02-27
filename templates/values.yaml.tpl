@@ -4,7 +4,7 @@ trivy:
   severity: "${severity_level}"
 
   # timeout is the duration to wait for scan completion.
-  timeout: "{$trivy_timeout}"
+  timeout: "${trivy_timeout}"
   
   resources:
     requests:
