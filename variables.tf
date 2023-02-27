@@ -127,3 +127,27 @@ variable "scanner_report_ttl" {
   default     = "24h"
   type        = string
 }
+
+variable "enable_config_audit" {
+  description = "flag to enable configuration audit scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_rbac_assess" {
+  description = "flag to enable rbac assessment scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_infra_assess" {
+  description = "flag to enable infra assessment scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_secret_scan" {
+  description = "flag to enable exposed secret scanner"
+  default     = "false"
+  type        = string
+}

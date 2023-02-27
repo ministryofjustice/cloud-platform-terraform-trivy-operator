@@ -29,6 +29,15 @@ operator:
   # scannerReportTTL the flag to set how long a report should exist. "" means that the ScannerReportTTL feature is disabled
   scannerReportTTL: "${scanner_report_ttl}"
 
+  # configAuditScannerEnabled the flag to enable configuration audit scanner
+  configAuditScannerEnabled: ${enable_config_audit}
+
+  # rbacAssessmentScannerEnabled the flag to enable rbac assessment scanner
+  rbacAssessmentScannerEnabled: ${enable_rbac_assess}
+
+  # infraAssessmentScannerEnabled the flag to enable infra assessment scanner
+  infraAssessmentScannerEnabled: ${enable_infra_assess}
+
   # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
 
@@ -36,6 +45,9 @@ operator:
   # trivy.mode = ClientServer and serverURL = http://<serverServiceName>.<trivy operator namespace>:4975 
   builtInTrivyServer: ${enable_trivy_server}
 
+  # exposedSecretScannerEnabled the flag to enable exposed secret scanner
+  exposedSecretScannerEnabled: ${enable_secret_scan}
+  
   # Dockerhub credentials obtained via namespace secret
   privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
 
