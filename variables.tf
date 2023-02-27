@@ -109,3 +109,9 @@ variable "enable_trivy_server" {
   default     = "false"
   type        = string
 }
+
+variable "trivy_service_account" {
+  description = "Name of the k8s Service Account. If not set, name is generated automatically."
+  default     = ""
+  type        = string
+}

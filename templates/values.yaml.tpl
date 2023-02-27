@@ -40,7 +40,7 @@ serviceAccount:
     "${role_key_annotation}": "${eks_service_account}"
   # name specifies the name of the k8s Service Account. If not set and create is
   # true, a name is generated using the fullname template.
-  name: ""
+  name: "${trivy_service_account}"
 
 # Prometheus ServiceMonitor configuration -- to install the trivy operator with the ServiceMonitor
 # you must have Prometheus already installed and running
