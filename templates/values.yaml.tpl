@@ -1,7 +1,10 @@
 trivy:
   
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
-  severity: "${severity-level}"
+  severity: "${severity_level}"
+
+  # timeout is the duration to wait for scan completion.
+  timeout: "${trivy_timeout}"
   
   resources:
     requests:
@@ -13,9 +16,38 @@ trivy:
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
-  githubToken: "${github-access-token}"
+  githubToken: "${github_access_token}"
 
 operator:
+
+  # scanJobTTL the set automatic cleanup time after the job is completed
+  # scanJobTTL:
+
+  # scanJobTimeout the length of time to wait before giving up on a scan job
+  scanJobTimeout: ${scan_job_timeout}
+
+  # scannerReportTTL the flag to set how long a report should exist. "" means that the ScannerReportTTL feature is disabled
+  scannerReportTTL: "${scanner_report_ttl}"
+
+  # configAuditScannerEnabled the flag to enable configuration audit scanner
+  configAuditScannerEnabled: ${enable_config_audit}
+
+  # rbacAssessmentScannerEnabled the flag to enable rbac assessment scanner
+  rbacAssessmentScannerEnabled: ${enable_rbac_assess}
+
+  # infraAssessmentScannerEnabled the flag to enable infra assessment scanner
+  infraAssessmentScannerEnabled: ${enable_infra_assess}
+
+  # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
+  scanJobsConcurrentLimit: ${job_concurrency_limit} 
+
+  # builtInTrivyServer The flag enable the usage of built-in trivy server in cluster ,its also override the following trivy params with built-in values
+  # trivy.mode = ClientServer and serverURL = http://<serverServiceName>.<trivy operator namespace>:4975 
+  builtInTrivyServer: ${enable_trivy_server}
+
+  # exposedSecretScannerEnabled the flag to enable exposed secret scanner
+  exposedSecretScannerEnabled: ${enable_secret_scan}
+  
   # Dockerhub credentials obtained via namespace secret
   privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
 
@@ -26,7 +58,7 @@ serviceAccount:
     "${role_key_annotation}": "${eks_service_account}"
   # name specifies the name of the k8s Service Account. If not set and create is
   # true, a name is generated using the fullname template.
-  name: ""
+  name: "${trivy_service_account}"
 
 # Prometheus ServiceMonitor configuration -- to install the trivy operator with the ServiceMonitor
 # you must have Prometheus already installed and running

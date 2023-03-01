@@ -46,25 +46,25 @@ variable "role_key_annotation" {
 
 variable "memory_limit" {
   description = "resources:limit memory value"
-  default     = "1000M"
+  default     = "500M"
   type        = string
 }
 
 variable "cpu_limit" {
   description = "resources:limits CPU value"
-  default     = "1000m"
+  default     = "500m"
   type        = string
 }
 
 variable "memory_requests" {
   description = "resources:requests memory value"
-  default     = "500M"
+  default     = "100M"
   type        = string
 }
 
 variable "cpu_requests" {
   description = "resources:requests CPU value"
-  default     = "500m"
+  default     = "100m"
   type        = string
 }
 
@@ -89,5 +89,65 @@ variable "memory_requests_non_live" {
 variable "cpu_requests_non_live" {
   description = "Non-live cluster value for resources:requests CPU value"
   default     = "100m"
+  type        = string
+}
+
+variable "job_concurrency_limit" {
+  description = "Sets the maximum value for concurrent report jobs"
+  default     = 10
+  type        = number
+}
+
+variable "scan_job_timeout" {
+  description = "The length of time to wait before giving up on a scan job"
+  default     = "5m"
+  type        = string
+}
+
+variable "enable_trivy_server" {
+  description = "Enable built-in trivy server (clientServer mode). If true, do not set githubToken value"
+  default     = "false"
+  type        = string
+}
+
+variable "trivy_service_account" {
+  description = "Name of the k8s Service Account. If not set, name is generated automatically."
+  default     = ""
+  type        = string
+}
+
+variable "trivy_timeout" {
+  description = "Duration to wait for scan completion"
+  default     = "5m0s"
+  type        = string
+}
+
+variable "scanner_report_ttl" {
+  description = "flag to set how long a report should exist. When a old report is deleted a new one will be created by the controller."
+  default     = "24h"
+  type        = string
+}
+
+variable "enable_config_audit" {
+  description = "flag to enable configuration audit scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_rbac_assess" {
+  description = "flag to enable rbac assessment scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_infra_assess" {
+  description = "flag to enable infra assessment scanner"
+  default     = "false"
+  type        = string
+}
+
+variable "enable_secret_scan" {
+  description = "flag to enable exposed secret scanner"
+  default     = "false"
   type        = string
 }
