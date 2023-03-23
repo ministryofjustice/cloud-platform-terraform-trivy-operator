@@ -38,6 +38,9 @@ operator:
   # infraAssessmentScannerEnabled the flag to enable infra assessment scanner
   infraAssessmentScannerEnabled: ${enable_infra_assess}
 
+  # clusterComplianceEnabled the flag to enable cluster compliance report generation 
+  clusterComplianceEnabled: false
+
   # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
 
