@@ -46,7 +46,7 @@ variable "role_key_annotation" {
 
 variable "memory_limit" {
   description = "resources:limit memory value"
-  default     = "500M"
+  default     = "1000M"
   type        = string
 }
 
@@ -58,7 +58,7 @@ variable "cpu_limit" {
 
 variable "memory_requests" {
   description = "resources:requests memory value"
-  default     = "100M"
+  default     = "500M"
   type        = string
 }
 
