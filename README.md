@@ -66,9 +66,9 @@ See the [examples/](examples/) folder for more information.
 | <a name="input_enable_trivy_server"></a> [enable\_trivy\_server](#input\_enable\_trivy\_server) | Enable built-in trivy server (clientServer mode). If true, do not set githubToken value | `string` | `"false"` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
 | <a name="input_job_concurrency_limit"></a> [job\_concurrency\_limit](#input\_job\_concurrency\_limit) | Sets the maximum value for concurrent report jobs | `number` | `10` | no |
-| <a name="input_memory_limit"></a> [memory\_limit](#input\_memory\_limit) | resources:limit memory value | `string` | `"500M"` | no |
+| <a name="input_memory_limit"></a> [memory\_limit](#input\_memory\_limit) | resources:limit memory value | `string` | `"1000M"` | no |
 | <a name="input_memory_limit_non_live"></a> [memory\_limit\_non\_live](#input\_memory\_limit\_non\_live) | Non-live cluster value for resources:limit memory value | `string` | `"500M"` | no |
-| <a name="input_memory_requests"></a> [memory\_requests](#input\_memory\_requests) | resources:requests memory value | `string` | `"100M"` | no |
+| <a name="input_memory_requests"></a> [memory\_requests](#input\_memory\_requests) | resources:requests memory value | `string` | `"500M"` | no |
 | <a name="input_memory_requests_non_live"></a> [memory\_requests\_non\_live](#input\_memory\_requests\_non\_live) | Non-live clustrer value for resources:requests memory value | `string` | `"100M"` | no |
 | <a name="input_role_key_annotation"></a> [role\_key\_annotation](#input\_role\_key\_annotation) | The annotation key to use for the role key | `string` | `"eks.amazonaws.com/role-arn"` | no |
 | <a name="input_scan_job_timeout"></a> [scan\_job\_timeout](#input\_scan\_job\_timeout) | The length of time to wait before giving up on a scan job | `string` | `"5m"` | no |
