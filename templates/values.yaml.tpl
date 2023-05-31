@@ -13,6 +13,11 @@ trivy:
     limits:
       cpu: "${cpu_limit}"
       memory: "${memory_limit}"
+
+  # command. One of `image`, `filesystem` or `rootfs` scanning, depending on the target type required for the scan.
+  # For 'filesystem' and `rootfs` scanning, ensure that the `trivyOperator.scanJobPodTemplateContainerSecurityContext` is configured
+  # to run as the root user (runAsUser = 0).
+  command: rootfs
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
@@ -74,3 +79,7 @@ serviceMonitor:
   # Additional labels for the serviceMonitor
   labels: {}
   # honorLabels: true
+
+trivyOperator:
+  scanJobPodTemplateContainerSecurityContext:
+    runAsUser: 0
