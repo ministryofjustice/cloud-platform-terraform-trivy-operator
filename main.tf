@@ -53,35 +53,12 @@ resource "helm_release" "trivy-system" {
   depends_on = [
     kubernetes_namespace.trivy-system,
     module.iam_assumable_role_admin,
-    kubernetes_secret.dockerhub_credentials
   ]
 
   lifecycle {
     ignore_changes = [keyring]
   }
 }
-
-resource "kubernetes_secret" "dockerhub_credentials" {
-  metadata {
-    name      = "dockerhub-credentials"
-    namespace = kubernetes_namespace.trivy-system.id
-  }
-
-  type = "kubernetes.io/dockerconfigjson"
-
-  data = {
-    ".dockerconfigjson" = <<DOCKER
-{
-  "auths": {
-    "https://index.docker.io/v1": {
-      "auth": "${base64encode("${var.dockerhub_username}:${var.dockerhub_password}")}"
-    }
-  }
-}
-DOCKER
-  }
-}
-
 
 module "iam_assumable_role_admin" {
   source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
