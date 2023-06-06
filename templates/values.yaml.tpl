@@ -57,7 +57,7 @@ operator:
   exposedSecretScannerEnabled: ${enable_secret_scan}
   
   # Dockerhub credentials obtained via namespace secret
-  privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
+  # privateRegistryScanSecretsNames: {"trivy-system":"dockerhub-credentials"}
 
 serviceAccount:
   # Specifies whether a service account should be created.
