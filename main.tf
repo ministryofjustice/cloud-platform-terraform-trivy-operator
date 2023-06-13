@@ -29,7 +29,6 @@ resource "helm_release" "trivy-system" {
 
   values = [templatefile("${path.module}/templates/values.yaml.tpl", {
     severity_level          = var.severity_list,
-    github_access_token     = var.github_token
     eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
     service_monitor_enabled = var.service_monitor_enabled
     role_key_annotation     = var.role_key_annotation
@@ -49,6 +48,11 @@ resource "helm_release" "trivy-system" {
     enable_secret_scan      = var.enable_secret_scan
     })
   ]
+
+  set_sensitive {
+    name = "trivy.githubToken"
+    value = var.github_token
+  }
 
   depends_on = [
     kubernetes_namespace.trivy-system,
