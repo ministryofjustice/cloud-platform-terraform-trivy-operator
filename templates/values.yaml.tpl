@@ -21,7 +21,7 @@ trivy:
     
   # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
   # database from GitHub. Only applicable in Standalone mode.
-  githubToken:
+  githubToken: "${github_token}"
 
 operator:
 

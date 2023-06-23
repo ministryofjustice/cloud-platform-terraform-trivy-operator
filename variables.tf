@@ -20,6 +20,7 @@ variable "github_token" {
   description = "GitHub Personal Access Token"
   default     = ""
   type        = string
+  sensitive   = true
 }
 
 variable "service_monitor_enabled" {

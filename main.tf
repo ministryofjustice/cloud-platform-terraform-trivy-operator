@@ -46,13 +46,9 @@ resource "helm_release" "trivy-system" {
     enable_rbac_assess      = var.enable_rbac_assess
     enable_infra_assess     = var.enable_infra_assess
     enable_secret_scan      = var.enable_secret_scan
+    github_token            = var.github_token
     })
   ]
-
-  set_sensitive {
-    name = "trivy.githubToken"
-    value = var.github_token
-  }
 
   depends_on = [
     kubernetes_namespace.trivy-system,
