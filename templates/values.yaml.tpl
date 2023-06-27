@@ -1,3 +1,5 @@
+excludeNamespaces: "kuberhealthy"
+
 trivy:
   
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
