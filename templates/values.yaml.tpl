@@ -51,6 +51,9 @@ operator:
   # clusterComplianceEnabled the flag to enable cluster compliance report generation 
   clusterComplianceEnabled: false
 
+  # -- the flag to enable sbom generation
+  sbomGenerationEnabled: false 
+
   # scanJobsConcurrentLimit the maximum number of scan jobs create by the operator
   scanJobsConcurrentLimit: ${job_concurrency_limit} 
 
