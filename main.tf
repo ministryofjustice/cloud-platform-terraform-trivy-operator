@@ -7,7 +7,7 @@ resource "kubernetes_namespace" "trivy-system" {
       "component"                                      = "trivy-system"
       "cloud-platform.justice.gov.uk/is-production"    = "true"
       "cloud-platform.justice.gov.uk/environment-name" = "production"
-      "pod-security.kubernetes.io/audit"               = "privileged"
+      "pod-security.kubernetes.io/enforce"             = "privileged"
     }
 
     annotations = {
