@@ -7,8 +7,8 @@ trivy:
   
   # As a temporary fix to alleviate trivy images own CVEs flagging in cluster-wide image vuln reports, we are 
   # bumping trivy binary image beyond chart 0.18.4 default tag. 
-   image:
-    # -- registry of the Trivy image
+  image:
+  # -- registry of the Trivy image
     registry: ghcr.io
     # -- repository of the Trivy image
     repository: aquasecurity/trivy
