@@ -19,6 +19,14 @@ trivy:
 
   # timeout is the duration to wait for scan completion.
   timeout: "${trivy_timeout}"
+
+  server:
+    securityContext:
+      privileged: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
   
   resources:
     requests:
