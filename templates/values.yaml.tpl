@@ -1,19 +1,10 @@
 # -- excludeNamespaces is a comma separated list of namespaces (or glob patterns)
 # to be excluded from scanning. Only applicable in the all namespaces install
 # mode, i.e. when the targetNamespaces values is a blank string.
-excludeNamespaces: "kuberhealthy"
+excludeNamespaces: "kuberhealthy, *smoketest*"
 
 trivy:
   
-  # As a temporary fix to alleviate trivy images own CVEs flagging in cluster-wide image vuln reports, we are 
-  # bumping trivy binary image beyond chart 0.18.4 default tag. 
-  image:
-  # -- registry of the Trivy image
-    registry: ghcr.io
-    # -- repository of the Trivy image
-    repository: aquasecurity/trivy
-    # -- tag version of the Trivy image
-    tag: 0.47.0 
   # severity is a comma separated string list of CVE severity levels to monitor. Possible values are UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
   severity: "${severity_level}"
 

@@ -26,7 +26,7 @@ resource "helm_release" "trivy-system" {
   namespace  = kubernetes_namespace.trivy-system.id
   repository = "https://aquasecurity.github.io/helm-charts/"
   chart      = "trivy-operator"
-  version    = "0.18.4"
+  version    = "0.25.0"
 
   values = [templatefile("${path.module}/templates/values.yaml.tpl", {
     severity_level          = var.severity_list,
