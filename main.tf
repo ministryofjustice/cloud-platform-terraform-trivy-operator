@@ -46,8 +46,8 @@ resource "helm_release" "trivy-system" {
     enable_config_audit     = var.enable_config_audit
     enable_rbac_assess      = var.enable_rbac_assess
     enable_infra_assess     = var.enable_infra_assess
-    enable_secret_scan      = var.enable_secret_scan,
-    exclude_namespaces      = var.exclude_namespaces,
+    enable_secret_scan      = var.enable_secret_scan
+    exclude_namespaces      = var.exclude_namespaces
     })
   ]
 
