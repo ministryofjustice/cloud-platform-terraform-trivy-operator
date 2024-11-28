@@ -63,7 +63,7 @@ See the [examples/](examples/) folder for more information.
 | <a name="input_enable_rbac_assess"></a> [enable\_rbac\_assess](#input\_enable\_rbac\_assess) | flag to enable rbac assessment scanner | `string` | `"false"` | no |
 | <a name="input_enable_secret_scan"></a> [enable\_secret\_scan](#input\_enable\_secret\_scan) | flag to enable exposed secret scanner | `string` | `"false"` | no |
 | <a name="input_enable_trivy_server"></a> [enable\_trivy\_server](#input\_enable\_trivy\_server) | Enable built-in trivy server (clientServer mode). If true, do not set githubToken value | `string` | `"false"` | no |
-| <a name="input_exclude_namespaces"></a> [exclude\_namespaces](#input\_exclude\_namespaces) | Comma separated string of namespaces to exclude from scanning | `string` | `"kube-system, cert-manager, calico-system, calico-api-server, kuberhealthy, gatekeeper-system, ingress-controllers, tigera-operator, logging, monitoring, velero, trivy-system, external-secrets-operator, *smoketest*"` | no |
+| <a name="input_exclude_namespaces"></a> [exclude\_namespaces](#input\_exclude\_namespaces) | Comma separated string of namespaces to exclude from scanning | `string` | `"kuberhealthy, *smoketest*"` | no |
 | <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub Personal Access Token | `string` | `""` | no |
 | <a name="input_job_concurrency_limit"></a> [job\_concurrency\_limit](#input\_job\_concurrency\_limit) | Sets the maximum value for concurrent report jobs | `number` | `10` | no |
 | <a name="input_memory_limit"></a> [memory\_limit](#input\_memory\_limit) | resources:limit memory value | `string` | `"1000M"` | no |
