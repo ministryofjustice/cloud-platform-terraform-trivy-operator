@@ -151,3 +151,9 @@ variable "enable_secret_scan" {
   default     = "false"
   type        = string
 }
+
+variable "exclude_namespaces" {
+  description = "Comma separated string of namespaces to exclude from scanning"
+  default     = "kube-system, cert-manager, calico-system, calico-api-server, kuberhealthy, gatekeeper-system, ingress-controllers, tigera-operator, logging, monitoring, velero, trivy-system, external-secrets-operator, *smoketest*"
+  type        = string
+}
