@@ -99,3 +99,5 @@ serviceMonitor:
 trivyOperator:
   scanJobPodTemplateContainerSecurityContext:
     runAsUser: 0
+    privileged: true
+    allowPrivilegeEscalation: true
