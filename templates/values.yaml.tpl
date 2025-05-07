@@ -1,7 +1,7 @@
 # -- excludeNamespaces is a comma separated list of namespaces (or glob patterns)
 # to be excluded from scanning. Only applicable in the all namespaces install
 # mode, i.e. when the targetNamespaces values is a blank string.
-excludeNamespaces: "kuberhealthy, *smoketest*"
+excludeNamespaces: "${exclude_namespaces}"
 
 trivy:
   
