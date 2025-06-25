@@ -46,7 +46,7 @@ variable "role_key_annotation" {
 
 variable "memory_limit" {
   description = "resources:limit memory value"
-  default     = "1000M"
+  default     = "3000M"
   type        = string
 }
 
