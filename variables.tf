@@ -151,3 +151,9 @@ variable "enable_secret_scan" {
   default     = "false"
   type        = string
 }
+
+variable "exclude_namespaces" {
+  description = "Comma separated string of namespaces to exclude from scanning"
+  default     = "kuberhealthy, *smoketest*"
+  type        = string
+}
