@@ -50,10 +50,12 @@ resource "helm_release" "trivy-system" {
     })
   ]
 
-  set_sensitive {
-    name  = "trivy.githubToken"
-    value = var.github_token
-  }
+  set_sensitive = [
+    {
+      name  = "trivy.githubToken"
+      value = var.github_token
+    }
+  ]
 
   depends_on = [
     kubernetes_namespace.trivy-system,
