@@ -58,8 +58,7 @@ resource "helm_release" "trivy-system" {
   ]
 
   depends_on = [
-    kubernetes_namespace.trivy-system,
-    module.iam_assumable_role_admin,
+    kubernetes_namespace.trivy-system
   ]
 
   lifecycle {
