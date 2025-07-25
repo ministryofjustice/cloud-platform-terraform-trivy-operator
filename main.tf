@@ -67,12 +67,31 @@ resource "helm_release" "trivy-system" {
   }
 }
 
-module "iam_assumable_role_admin" {
-  source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version                       = "3.13.0"
-  create_role                   = true
-  role_name                     = "trivy.${var.cluster_domain_name}"
-  provider_url                  = var.eks_cluster_oidc_issuer_url
-  role_policy_arns              = ["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]
-  oidc_fully_qualified_subjects = ["system:serviceaccount:trivy-system:trivy-system-trivy-operator"]
+data "aws_iam_policy_document" "trivy_operator_assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Federated"
+      identifiers = [var.eks_cluster_oidc_issuer_url]
+    }
+
+    actions = ["sts:AssumeRoleWithWebIdentity"]
+
+    condition {
+      test     = "StringEquals"
+      variable = "${replace(var.eks_cluster_oidc_issuer_url, "https://", "")}:sub"
+      values   = ["system:serviceaccount:trivy-system:trivy-system-trivy-operator"]
+    }
+  }
+}
+
+resource "aws_iam_role" "trivy_operator" {
+  name               = "trivy.${var.cluster_domain_name}"
+  assume_role_policy = data.aws_iam_policy_document.trivy_operator_assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "trivy_ecr_readonly" {
+  role       = aws_iam_role.trivy_operator.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
