@@ -1,3 +1,15 @@
+# trivy-operator requests is defined at top level
+# we are ensuring operator is scheduled with suitable memory for live cluster
+
+resources:
+  requests:
+  memory: 1500Mi
+
+# -- excludeNamespaces is a comma separated list of namespaces (or glob patterns)
+# to be excluded from scanning. Only applicable in the all namespaces install
+# mode, i.e. when the targetNamespaces values is a blank string.
+excludeNamespaces: "*smoketest*"
+
 # -- excludeNamespaces is a comma separated list of namespaces (or glob patterns)
 # to be excluded from scanning. Only applicable in the all namespaces install
 # mode, i.e. when the targetNamespaces values is a blank string.
