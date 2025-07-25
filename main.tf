@@ -30,7 +30,7 @@ resource "helm_release" "trivy-system" {
 
   values = [templatefile("${path.module}/templates/values.yaml.tpl", {
     severity_level          = var.severity_list,
-    eks_service_account     = module.iam_assumable_role_admin.this_iam_role_arn
+    eks_service_account     = aws_iam_role.trivy_operator.arn
     service_monitor_enabled = var.service_monitor_enabled
     role_key_annotation     = var.role_key_annotation
     memory_requests         = can(regex("live", terraform.workspace)) ? var.memory_requests : var.memory_requests_non_live
