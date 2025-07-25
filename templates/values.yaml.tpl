@@ -3,7 +3,7 @@
 
 resources:
   requests:
-  memory: 1500Mi
+    memory: 1500Mi
 
 # -- excludeNamespaces is a comma separated list of namespaces (or glob patterns)
 # to be excluded from scanning. Only applicable in the all namespaces install
